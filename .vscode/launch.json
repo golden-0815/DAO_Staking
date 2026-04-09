@@ -1,0 +1,50 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in library 'metapool'",
+            "cargo": {
+                "args": [
+                    "+nightly",
+                    "test"
+                ],
+                /*"filter": {
+                    "name": "meta-pool",
+                    "kind": "lib"
+                }
+                */
+            },
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Debug Simulation Tests",
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "env": {"CARGO_MANIFEST_DIR":"${workspaceFolder}/metapool"},
+            "program": "target/debug/deps/sim-165a134e5a65691f",
+            "cwd": "${workspaceFolder}",
+            "stopOnEntry": false,
+            "sourceLanguages": [
+              "rust"
+            ]
+        },
+        {
+            "name": "Run Simulation Tests",
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "program": "target/debug/deps/tests-78512ce406ce79d4",
+            "cwd": "${workspaceFolder}",
+            "stopOnEntry": false,
+            "sourceLanguages": [
+              "rust"
+            ]
+        }
+    ]
+}
